@@ -137,3 +137,77 @@ Command Patterns
 		}
 	}
 	
+	
+TemplatePattern
+	In Template pattern, an abstract class exposes defined way / template to execute its methods
+	Its subclasses can override the method implementation as per need but the invocation 
+	is to be in the same way as defined by an abstract class
+	
+	public abstract class Algorithm {
+		public abstract void initialize();
+		public abstract void sorting();
+		public abstract void printResults();
+		
+		public void sort(){
+			initialize();
+			sorting();
+			printResults();
+		}
+	}
+	
+
+	
+--------------------------
+Creational Design Patterns
+--------------------------
+
+Singleton pattern
+	public class SingleObject {
+		private static SingleObject instance = new SingleObject();
+		private SingleObject(){}
+		public static SingleObject getInstance(){
+			return instance;
+		}
+		public void showMessage(){
+			System.out.println("Hello World!");
+		}
+	}
+	
+Factory pattern	
+	public interface Algorithm {
+		public void solve();
+	}
+	public class AlgorithmFactory {
+		public static final int SHORTEST_PATH = 0;
+		public static final int SPANNING_TREE = 1;
+		public static Algorithm createAlgorithm(int type) {
+			switch (type) {
+				case SHORTEST_PATH:
+					return new ShortestPath();
+				case SPANNING_TREE:
+					return new SpanningTree();
+				default:
+					return null;
+			}
+		}
+	}
+
+Builder pattern
+	
+
+DAO : Data Access Object
+	public class Student {
+	   private String name;
+	   private int rollNo;
+	}
+	
+	public interface StudentDao {
+	   public List<Student> getAllStudents();
+	   public Student getStudent(int rollNo);
+	   public void updateStudent(Student student);
+	   public void deleteStudent(Student student);
+	}
+	
+--------------------------	
+Structural Design Patterns
+--------------------------
