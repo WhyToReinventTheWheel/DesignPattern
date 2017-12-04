@@ -17,14 +17,14 @@ SOLID :
 	
 
 	
--------------------	
+
 Creational Pattern
--------------------
+
 	* StrategyPattern
 		* Favor composition over inheritance
 		* Programme to interface
 		* Example : We can have any Strategy Add, Multiply, devide etc.
-		
+		```
 		public interface Strategy {
 			public void operation(int num1, int num2);
 		}
@@ -39,7 +39,7 @@ Creational Pattern
 				this.strategy.operation(num1, num2);
 			}
 		}
-		
+		```
 
 
 		
