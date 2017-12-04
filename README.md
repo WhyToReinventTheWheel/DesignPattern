@@ -261,3 +261,58 @@ Decorator Pattern
 
 	Shape redRectangle = new RedShapeDecorator(new Rectangle());
 	redRectangle.draw();
+	
+	
+Facade Pattern
+	
+	Facade pattern hides the complexities of the system and provides an interface to the client 
+	using which the client can access the system
+	
+	public interface Shape {
+		void draw();
+	}
+	
+	public class Rectangle implements Shape {
+		@Override
+		public void draw() {
+			System.out.println("Rectangle::draw()");
+		}
+	}
+	
+	public class Square implements Shape {
+		@Override
+		public void draw() {
+			System.out.println("Square::draw()");
+		}
+	}
+	
+	public class ShapeMaker {
+		private Shape rectangle;
+		private Shape square;
+
+		public ShapeMaker() {
+			circle = new Circle();
+			rectangle = new Rectangle();
+			square = new Square();
+		}
+
+		public void drawCircle(){
+			circle.draw();
+		}
+		public void drawRectangle(){
+			rectangle.draw();
+		}
+		public void drawSquare(){
+			square.draw();
+		}
+	}
+	
+	public class FacadePatternDemo {
+	   public static void main(String[] args) {
+		  ShapeMaker shapeMaker = new ShapeMaker();
+
+		  shapeMaker.drawCircle();
+		  shapeMaker.drawRectangle();
+		  shapeMaker.drawSquare();		
+	   }
+	}
