@@ -92,10 +92,10 @@ Command Patterns
 		Values for parameters of the receiver method are stored in the command !!!
 	* Receiver: does the work itself
 	* Invoker: knows how to execute a command, and optionally does bookkeeping about the
-			command execution The invoker does not know anything about a concrete command, 
-			it knows only about command interface !!!
+		command execution The invoker does not know anything about a concrete command, 
+		it knows only about command interface !!!
 	* Client: The client decides which commands to execute at which points To execute a command, 
-			it passes the command object to the invoker object
+		it passes the command object to the invoker object
 
 	// receiver
 	public class Light {
