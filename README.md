@@ -1,4 +1,6 @@
-SOLID : 
+-----
+SOLID
+----- 
 	S=Single Responsibility Principle
 		A software entity (class, method) should have only one reason to change
 	O=Open Closed Principle (open for extension, but closed for modification)
@@ -15,10 +17,9 @@ SOLID :
 			better satisfy the exact needs of our clients
 	* D=Dependency Inversion Principle
 	
-
-	
-
+------------------
 Creational Pattern
+------------------
 
 	* StrategyPattern
 		* Favor composition over inheritance
