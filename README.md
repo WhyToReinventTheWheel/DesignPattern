@@ -15,3 +15,31 @@ SOLID :
 			better satisfy the exact needs of our clients
 	* D=Dependency Inversion Principle
 	
+
+	
+-------------------	
+Creational Pattern
+-------------------
+	* StrategyPattern
+		* Favor composition over inheritance
+		* Programme to interface
+		* Example : We can have any Strategy Add, Multiply, devide etc.
+		```
+		public interface Strategy {
+			public void operation(int num1, int num2);
+		}
+
+		public class Manager implements Strategy{
+			private Strategy strategy;
+			public void setStrategy(Strategy strategy){
+				this.strategy = strategy;
+			}
+			@Override
+			public void operation(int num1, int num2) {
+				this.strategy.operation(num1, num2);
+			}
+		}
+		```
+
+
+		
