@@ -95,3 +95,45 @@ Command Patterns
 			it knows only about command interface !!!
 	Client: The client decides which commands to execute at which points To execute a command, 
 			it passes the command object to the invoker object
+
+	// receiver
+	public class Light {
+		public void turnOn(){
+			System.out.println("Lights are on...");
+		}
+		public void turnOff(){
+			System.out.println("Lights are off...");
+		}
+	}
+	// command 
+	public interface Command {
+		public void execute();
+	}
+
+	public class TurnOffCommand implements Command{
+		private Light light;
+		public TurnOffCommand(Light light){
+			this.light = light;
+		}
+		@Override
+		public void execute() {
+			this.light.turnOff();
+		}
+	}
+	
+	//invoker
+	public class Switcher {
+		public List<Command> commandList;
+		public Switcher(){
+			this.commandList = new ArrayList<>();
+		}
+		public void addCommand(Command command){
+			this.commandList.add(command);
+		}
+		public void executeCommands(){
+			for(Command command : this.commandList){
+				command.execute();
+			}
+		}
+	}
+	
