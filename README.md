@@ -215,3 +215,49 @@ DAO : Data Access Object
 --------------------------	
 Structural Design Patterns
 --------------------------
+
+	Decorator Pattern: 
+		
+		Attaches additional responsibilities to an object dynamically !!!
+		Decorators provide a flexible alternative to subclassing for extending functionality
+		For example: 
+			new LineNumberInputStream(new BufferedInputStream(new FileInputStream()));
+ 
+		public interface Shape {
+		   void draw();
+		}
+		
+		public class Rectangle implements Shape {
+		   @Override
+		   public void draw() {
+			  System.out.println("Shape: Rectangle");
+		   }
+		}
+		
+		public abstract class ShapeDecorator implements Shape {
+		   protected Shape decoratedShape;
+		   public ShapeDecorator(Shape decoratedShape){
+			  this.decoratedShape = decoratedShape;
+		   }
+		   
+		   public void draw(){
+			  decoratedShape.draw();
+		   }	
+		}
+	
+		public class RedShapeDecorator extends ShapeDecorator {
+		   public RedShapeDecorator(Shape decoratedShape) {
+			  super(decoratedShape);		
+		   }
+		   @Override
+		   public void draw() {
+			  decoratedShape.draw();	       
+			  setRedBorder(decoratedShape);
+		   }
+		   private void setRedBorder(Shape decoratedShape){
+			  System.out.println("Border Color: Red");
+		   }
+		}
+ 
+ 		Shape redRectangle = new RedShapeDecorator(new Rectangle());
+		redRectangle.draw();
