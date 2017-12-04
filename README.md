@@ -175,6 +175,7 @@ Singleton pattern
 	}
 	
 Factory pattern	
+
 	public interface Algorithm {
 		public void solve();
 	}
