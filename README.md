@@ -9,6 +9,9 @@ SOLID :
 		will be no problems using the subtype or the original class.Without breaking functionality!!!
 	* I=Interface Segregation Principle(Programe to interface)
 		*We can have an abstraction of the system using interfaces
-		
-	* D=
+			a) it is not good if an interface contains lots of methods
+			b) no client should be forced to depend on methods it does not use
+			c) we should break our interfaces in many smaller ones, so they
+			better satisfy the exact needs of our clients
+	* D=Dependency Inversion Principle
 	
