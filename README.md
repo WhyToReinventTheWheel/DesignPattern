@@ -1,3 +1,5 @@
+Study Notes
+
 -----
 SOLID
 ----- 
@@ -17,30 +19,79 @@ SOLID
 			needs of our clients
 	D=Dependency Inversion Principle
 	
-------------------
-Creational Pattern
-------------------
+--------------------------
+Behavioral Design Patterns
+--------------------------
 
-	* StrategyPattern
-		* Favor composition over inheritance
-		* Programme to interface
-		* Example : We can have any Strategy Add, Multiply, devide etc.
+StrategyPattern
+	* Favor composition over inheritance
+	* Programme to interface
+	* Example : We can have any Strategy Add, Multiply, devide etc.
+	
+	public interface Strategy {
+		public void operation(int num1, int num2);
+	}
+
+	public class Manager implements Strategy{
+		private Strategy strategy;
+		public void setStrategy(Strategy strategy){
+			this.strategy = strategy;
+		}
+		@Override
+		public void operation(int num1, int num2) {
+			this.strategy.operation(num1, num2);
+		}
+	}
 		
-		public interface Strategy {
-			public void operation(int num1, int num2);
+ObserverPattern
+	if one object change state all of its dependents are notified automatically
+	
+	public interface Observer {
+		public void update(int pressure, int temperature, int humidity);
+	}
+	
+	public interface Subject {
+		public void addObserver(Observer o);
+		public void removeObserver(Observer o);
+		public void notifyAllObservers();
+	}
+	
+	public class WeatherStation implements Subject{
+		private int pressure;
+		private int temperature;
+		private int humidity;
+		private List<Observer> observersList = new ArrayList<>();
+		
+		@Override
+		public void addObserver(Observer o) {
+			this.observersList.add(o);
 		}
 
-		public class Manager implements Strategy{
-			private Strategy strategy;
-			public void setStrategy(Strategy strategy){
-				this.strategy = strategy;
-			}
-			@Override
-			public void operation(int num1, int num2) {
-				this.strategy.operation(num1, num2);
+		@Override
+		public void removeObserver(Observer o) {
+			this.observersList.remove(observersList.indexOf(o));
+		}
+
+		@Override
+		public void notifyAllObservers() {
+			for(Observer observer : this.observersList){
+				observer.update(pressure, temperature, humidity);
 			}
 		}
-		
 
+		public void setPressure(int pressure) {
+			this.pressure = pressure;
+			notifyAllObservers();
+		}
+	}
 
-		
+Command Patterns
+	4 components: command, receiver, invoker and client
+ 	Command: knows about receiver and invokes a method of the receiver
+		Values for parameters of the receiver method are stored in the command !!!
+	Receiver: does the work itself
+	Invoker: knows how to execute a command, and optionally does bookkeeping about the
+			command execution The invoker does not know anything about a concrete command, 
+			it knows only about command interface !!!
+	Client: The client decides which commands to execute at which points To execute a command, 
+			it passes the command object to the invoker object
