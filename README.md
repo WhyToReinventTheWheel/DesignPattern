@@ -1,5 +1,6 @@
 Study Notes
-	* https://www.tutorialspoint.com/design_pattern/
+
+	https://www.tutorialspoint.com/design_pattern/
 
 -----
 SOLID
