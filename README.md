@@ -2,9 +2,17 @@ Study Notes
 
 	https://www.tutorialspoint.com/design_pattern/
 
------
-SOLID
------ 
+# OOPS 
+	* Abstraction
+	* Encapsulation
+	* Polymorphism
+	* Inheritance
+	* Association
+	* Aggregation
+	* Composition
+
+# SOLID
+
 	S=Single Responsibility Principle
 		A software entity (class, method) should have only one reason to change
 	O=Open Closed Principle (open for extension, but closed for modification)
